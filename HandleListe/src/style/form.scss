@@ -25,20 +25,3 @@ button{
     align-items: center;
     margin: 1rem;
 }
-
-.item {
-    display: flex; align-items: center; 
-    gap: 12px; 
-    padding: 8px 0; 
-}
-
-.item-checkbox { 
-    width: 18px; 
-    height: 18px; 
-} 
-
-.item-quantity { 
-    width: 50px; 
-    padding: 4px;
-    color: var(--black);
-}
