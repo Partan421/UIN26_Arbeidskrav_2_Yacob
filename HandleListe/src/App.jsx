@@ -7,8 +7,6 @@ import './style/form.scss'
 import './style/items.scss'
 
 function App() {
-  const [checked, setChecked] = useState(false); 
-  const [quantity, setQty] = useState(1);
 
   return (
     <main>
@@ -25,17 +23,34 @@ function App() {
           <li className="item">
             <div className="item-left">
             <label>
-              <input className="item-checkbox" 
-              type="checkbox" 
-              checked={checked} 
-              onChange={(e) => setChecked(e.target.checked)} />          
+              <input className="item-checkbox" type="checkbox" />          
             </label>
             Egg
             </div>
             <label>
-              <input className="item-quantity" 
-              type="number" min="1" 
-              value={quantity} onChange={(e) => setQty(Number(e.target.value))} />
+              <input className="item-quantity" placeholder="1" type="number" min="1" />
+            </label>
+          </li>
+          <li className="item">
+            <div className="item-left">
+            <label>
+              <input className="item-checkbox" type="checkbox"  defaultChecked/>          
+            </label>
+            Melk
+            </div>
+            <label>
+              <input className="item-quantity" placeholder="1" type="number" min="1" />
+            </label>
+          </li>
+          <li className="item">
+            <div className="item-left">
+            <label>
+              <input className="item-checkbox" type="checkbox" />          
+            </label>
+            Viljen til å leve
+            </div>
+            <label>
+              <input className="item-quantity" placeholder="x" type="number" min="1" />
             </label>
           </li>
         </ul>
