@@ -7,16 +7,35 @@ import './style/form.scss'
 import './style/items.scss'
 
 function App() {
+  const [kurv, leggVare] = useState({
+    vare:'', 
+    antall:'',
+  })
+
+  const handleChange = (e)=>{
+    leggVare({...kurv,[e.target.name]: e.target.value})
+  }
+
+    const handleSubmit = (e)=>{
+      e.preventDefault()
+      console.log(kurv)
+  }
 
   return (
     <main>
       <section>
         <h1>Handleliste</h1>
-        <form>
+        <form onSubmit={handleSubmit}>
           <label>Vare:</label>
-          <input placeholder="Egg"></input>
+          <input placeholder="Egg" type="text" 
+          value={kurv.vare} onChange={handleChange} 
+          name='vare'>
+          </input>
           <label>Antall:</label>
-          <input placeholder="2"></input>
+          <input placeholder="2" type="number" 
+          value={kurv.antall} onChange={handleChange} 
+          name='antall'>
+          </input>
           <button>Legg til kurv</button>
         </form>
         <ul>
