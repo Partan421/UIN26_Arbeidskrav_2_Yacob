@@ -7,13 +7,13 @@ import './style/form.scss'
 import './style/items.scss'
 
 function App() {
-  const [kurv, leggVare] = useState({
+  const [kurv, leggTilVare] = useState({
     vare:'', 
     antall:'',
   })
 
   const handleChange = (e)=>{
-    leggVare({...kurv,[e.target.name]: e.target.value})
+    leggTilVare({...kurv,[e.target.name]: e.target.value})
   }
 
     const handleSubmit = (e)=>{
