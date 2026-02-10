@@ -28,7 +28,7 @@ function App() {
         <form onSubmit={handleSubmit}>
           <label>Vare:</label>
           <input placeholder="Egg" type="text" 
-          value={kurv.vare} onChange={handleChange} 
+          value={kurv.vare } onChange={handleChange} 
           name='vare'>
           </input>
           <label>Antall:</label>
