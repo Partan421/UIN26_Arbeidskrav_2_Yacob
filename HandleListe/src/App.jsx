@@ -43,9 +43,6 @@ function App() {
       setListe((prev) => [nyVare, ...prev])
 
       leggTilVare({ vare: '', antall: ''})
-
-
-      console.log(kurv)
   }
 
   return (
