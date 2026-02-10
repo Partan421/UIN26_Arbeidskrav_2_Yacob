@@ -12,12 +12,39 @@ function App() {
     antall:'',
   })
 
+  const [liste, setListe] =useState([
+    {
+      id: crypto.randomUUID(),
+      vare: "Egg",
+      antall: 1,
+    },
+    {
+      id: crypto.randomUUID(),
+      vare: "Melk",
+      antall: 1,
+      krysset: true,
+
+    }
+  ])
+
   const handleChange = (e)=>{
     leggTilVare({...kurv,[e.target.name]: e.target.value})
   }
 
     const handleSubmit = (e)=>{
       e.preventDefault()
+
+      const nyVare = {
+        id: crypto.randomUUID(),
+        vare: kurv.vare,
+        antall: kurv.antall
+      }
+
+      setListe((prev) => [nyVare, ...prev])
+
+      leggTilVare({ vare: '', antall: ''})
+
+
       console.log(kurv)
   }
 
@@ -39,39 +66,24 @@ function App() {
           <button>Legg til kurv</button>
         </form>
         <ul>
-          <li className="item">
+          {liste.map((item) => 
+          <li key={item.id} className="item">
             <div className="item-left">
-            <label>
-              <input className="item-checkbox" type="checkbox" />          
-            </label>
-            Egg
+              <label>
+                <input className="item-checkbox" type="checkbox" defaultChecked={item.krysset}/>
+              </label>
+              {item.vare}
             </div>
             <label>
-              <input className="item-quantity" placeholder="1" type="number" min="1" />
+              <input
+              className="item-quantity"
+              type="number"
+              min="1"
+              defaultValue={item.antall}
+              />
             </label>
           </li>
-          <li className="item">
-            <div className="item-left">
-            <label>
-              <input className="item-checkbox" type="checkbox"  defaultChecked/>          
-            </label>
-            Melk
-            </div>
-            <label>
-              <input className="item-quantity" placeholder="1" type="number" min="1" />
-            </label>
-          </li>
-          <li className="item">
-            <div className="item-left">
-            <label>
-              <input className="item-checkbox" type="checkbox" />          
-            </label>
-            Viljen til å leve
-            </div>
-            <label>
-              <input className="item-quantity" placeholder="x" type="number" min="1" />
-            </label>
-          </li>
+          )}
         </ul>
       </section>
     </main>
