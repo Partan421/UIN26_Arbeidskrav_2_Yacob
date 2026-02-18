@@ -1,3 +1,10 @@
+:root{
+    --white: #fff;
+    --grey: #3f3b3b;
+    --lightgrey: #c5cbc8e3;
+    --black: #000;
+}
+
 .item {
     display: flex;
     width: 100%;
@@ -17,8 +24,12 @@
 } 
 
 .item-quantity { 
-    width: 50px; 
+    max-width: 50px;
+    width: auto; 
     padding: 4px;
     margin-right: 1rem;
-    color: var(--black);
+    border-radius: 4px;
+    background-color: var(--white);
+    border: 1px solid var(--lightgrey);
+    height: auto;
 }
